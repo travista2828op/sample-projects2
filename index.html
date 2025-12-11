@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Projects 2 - Running Preview</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 Sample Projects 2</h1>
+            <p class="subtitle">A Modern Web Application Preview</p>
+        </header>
+
+        <main>
+            <section class="card">
+                <h2>Welcome!</h2>
+                <p>This is a running preview of the Sample Projects 2 application.</p>
+                <p>Current time: <strong id="current-time"></strong></p>
+            </section>
+
+            <section class="card">
+                <h2>Interactive Counter</h2>
+                <div class="counter-container">
+                    <button id="decrement" class="btn btn-secondary">-</button>
+                    <span id="counter" class="counter-value">0</span>
+                    <button id="increment" class="btn btn-primary">+</button>
+                </div>
+                <button id="reset" class="btn btn-outline">Reset</button>
+            </section>
+
+            <section class="card">
+                <h2>Quick Note</h2>
+                <textarea id="note-input" placeholder="Type your note here..." rows="4"></textarea>
+                <div class="note-actions">
+                    <button id="save-note" class="btn btn-primary">Save Note</button>
+                    <button id="clear-note" class="btn btn-secondary">Clear</button>
+                </div>
+                <div id="saved-note" class="saved-note"></div>
+            </section>
+
+            <section class="card features">
+                <h2>Features</h2>
+                <ul>
+                    <li>✅ Real-time clock display</li>
+                    <li>✅ Interactive counter with local storage</li>
+                    <li>✅ Note-taking functionality</li>
+                    <li>✅ Responsive design</li>
+                    <li>✅ Modern UI with animations</li>
+                </ul>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Sample Projects 2. Built with ❤️</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
