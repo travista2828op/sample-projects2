@@ -1,0 +1,19 @@
+{
+  "name": "image-to-prompt-app",
+  "version": "1.0.0",
+  "description": "Convert images to detailed prompts for image recreation",
+  "private": true,
+  "workspaces": [
+    "packages/frontend",
+    "packages/backend"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev --workspace=packages/backend\" \"npm run dev --workspace=packages/frontend\"",
+    "build": "npm run build --workspace=packages/backend && npm run build --workspace=packages/frontend",
+    "start": "npm start --workspace=packages/backend",
+    "test": "npm test --workspace=packages/backend && npm test --workspace=packages/frontend"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
