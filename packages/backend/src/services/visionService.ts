@@ -1,9 +1,5 @@
 import OpenAI from 'openai';
 
-const client = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
-
 const PROMPT_TEMPLATE = `Analyze this image in detail and generate a comprehensive, structured prompt that could be used to recreate this image exactly. 
 
 The prompt should include:
@@ -22,13 +18,20 @@ The prompt should include:
 
 Format the output as a single, detailed paragraph that captures all visual elements needed for accurate recreation.`;
 
+function getOpenAIClient(): OpenAI {
+  if (!process.env.OPENAI_API_KEY) {
+    throw new Error('OPENAI_API_KEY is not configured');
+  }
+  return new OpenAI({
+    apiKey: process.env.OPENAI_API_KEY,
+  });
+}
+
 export async function generatePrompt(
   base64Image: string,
   mimeType: string
 ): Promise<string> {
-  if (!process.env.OPENAI_API_KEY) {
-    throw new Error('OPENAI_API_KEY is not configured');
-  }
+  const client = getOpenAIClient();
 
   try {
     const response = await client.chat.completions.create({

@@ -19,7 +19,7 @@ const uploadLimiter = rateLimit({
 const storage = multer.memoryStorage();
 
 const fileFilter = (
-  req: Request,
+  _req: Request,
   file: Express.Multer.File,
   cb: FileFilterCallback
 ) => {
@@ -45,13 +45,14 @@ router.post(
   '/',
   uploadLimiter,
   upload.single('image'),
-  async (req: Request, res: Response, next: NextFunction) => {
+  async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
       if (!req.file) {
-        return res.status(400).json({
+        res.status(400).json({
           success: false,
           error: 'No image file provided',
         } as ApiResponse);
+        return;
       }
 
       const buffer = req.file.buffer;
